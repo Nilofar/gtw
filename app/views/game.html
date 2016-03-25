@@ -1,0 +1,51 @@
+
+
+    <div class="row">
+        <div class="col-md-12" style="">
+            <div class="col-md-3">
+                <button style="font-size:25px;height:70px; width:70px;" class="btn btn-primary activated" ng-model="idDrawing"> {{ idDrawing + 1 }} </button>
+            </div>
+
+            <div class="col-md-6" style="text-align:center;">
+                <div chrono-timer timer-name="myTimer" start-time="time">
+                    <!--{{ totalDays }} days<br />-->
+                    <!--{{ hours }} hours<br /> -->
+                    <button  style="font-size:25px;height:70px; width:70px;" class="btn btn-warning activated">{{ minutes|zeropad }}</button>
+                    <!--<button  class="button button-clear button-dark" style="min-width: 19px;font-weight: bold;font-size: 26px;">:</button>-->
+                    <button  style="font-size:25px;height:70px; width:70px;" class="btn btn-warning activated">{{ seconds|zeropad }}</button>
+                </div>
+            </div>
+
+            <div class="col-md-3" style="text-align:right;">
+                <!--<button class="button button-clear" style="font-size:20px; color:black;">Score</button>-->
+                <button style="font-size:25px;height:70px; width:70px;" class="btn btn-primary" ng-model="score">{{ score }}</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:20px;">
+        <div class="col-md-12"  style="text-align:center;z-index:1000;">
+            <div ng-show="showDrawing">
+                <div ng-model="drawing" >
+                    <button style="font-weight:bold;font-size:25px;height:70px; width:70px; margin-right:2px; margin-left:2px;" ng-repeat="letter in drawingMixed | orderBy : +letter track by $index " ng-click="" class="btn btn-success">{{ letter | uppercase }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12"  style="position:relative;text-align:center;">
+            <label class="item item-input" style="">
+                <!--$log.debug($event)-->
+                <input type="text" class="keyDown"  ng-model="result" id="hiddenFocus" focus-me="shouldBeOpen">
+            </label>
+
+            <div class="col-md-12" style="background:white; height:50px; position:absolute; top: -10px;"></div>
+            <div class="col-md-12" style="position:relative; top:-10px; text-align:center;;z-index:1000; ">
+                <button style="font-weight:bold;font-size:25px; height:70px; width:70px;margin-right:2px; margin-left:2px; " ng-repeat="letter in keyDown track by $index " class="btn btn-primary activated" >{{ letter }}</button>
+            </div>
+        </div>
+
+    </div>
+
+</section>

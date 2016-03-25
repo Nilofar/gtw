@@ -1,0 +1,42 @@
+
+    <section ng-controller="endgameController">
+        <div class="end-directive">
+            <div class="row" >
+                <div class="col-sm-6 col-sm-offset-3 text-center">Congratulations, {{player.name}}!</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 text-center"> You have aquired {{currentScore}} points!</div>
+            </div>
+
+                <!--{{ totalDays }} days<br />-->
+                <!--{{ hours }} hours<br /> -->
+                <button  style="font-size:25px;height:70px; width:70px;" class="btn btn-warning activated">{{ minutes|zeropad }}</button>
+                <!--<button  class="button button-clear button-dark" style="min-width: 19px;font-weight: bold;font-size: 26px;">:</button>-->
+                <button  style="font-size:25px;height:70px; width:70px;" class="btn btn-warning activated">{{ seconds|zeropad }}</button>
+
+
+            <div class="row text-center">
+                Your total score is: {{score}}
+            </div>
+            <div class="row text-center">
+                <div><a href="#/game" class="btn btn-info btn-lg" ng-click='startGame()'>RESTART</a></div>
+            </div>
+
+            <div class="row text-center">
+                <table st-table="highScore" class="table table-striped">
+                    <thead>
+                    <tr class="text-center">
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Score</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in highScore">
+                        <td class="text-center">{{row.name}}</td>
+                        <td class="text-center">{{row.totalScore}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
